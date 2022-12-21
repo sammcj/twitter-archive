@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>@s_mcleod Twitter archive</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="flex-wrap">
+      <h1>Twitter Archive</h1>
+      <p>Website: <a href="https://smcleod.net">smcleod.net</a></p>
+      <p>This is a page where you can search many of my tweets from before the great Twitter exodus of 2022.
+      <p><i>Replies to other people are not included in this archive.</i></p>
+
+      <script>
+        function toggleDarkMode() {
+          if (document.documentElement.classList.contains("light")) {
+            document.documentElement.classList.remove("light")
+            document.documentElement.classList.add("dark")
+          } else if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark")
+            document.documentElement.classList.add("light")
+          } else {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              document.documentElement.classList.add("dark")
+            } else {
+              document.documentElement.classList.add("light")
+            }
+          }
+        }
+      </script>
+      <button onClick="toggleDarkMode()">Light/Dark Mode</button>
+
+      <div class="tweet">
+        <p id="loading">Loading search...</p>
+        <div id="search" hidden>
+          <input id="search-input" type="search" />
+          <div id="sorting">Sort by: <button class="sort-button" onclick="sortResults('most-relevant')">most relevant</button> | <button class="sort-button" onclick="sortResults('oldest-first')">oldest first</button> | <button class="sort-button" onclick="sortResults('newest-first')">newest first</button> | <button class="sort-button" onclick="sortResults('most-popular')">most popular</button></div>
+          <div id="output"></div>
+        </div>
+      </div>
+
+      <p>This site was made with <a href="https://tinysubversions.com/twitter-archive/make-your-own/">this Twitter archiving tool</a>.</p>
+    </div>
+  </div>
+</body>
+<script src="searchDocuments.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+<script src="app.js"></script>
+</html>

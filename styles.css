@@ -1,0 +1,217 @@
+
+body {
+  font-family: sans-serif;
+  font-size: 1em;
+}
+
+#search-input {
+  font-size: 1.3em;
+  width: 100%;
+}
+.search_time {
+  margin-top: 4px;
+}
+.search_text {
+  display: inline;
+}
+.search_link {
+  display: inline;
+}
+#sorting {
+  margin-top: 8px;
+  line-height: 1.7em;
+}
+.sort-button {
+  font-size: 0.8em;
+}
+.wrapper {
+  display: block;
+  max-width: 600px;
+  margin: 0 auto;
+  word-wrap: break-word;
+}
+.flex-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.tweet {
+  max-width: 600px;
+  padding: 25px;
+  font-family: monospace;
+  font-size: 1.2em;
+  border-radius: 16px;
+}
+
+.tweet img {
+  max-height: 100%;
+  vertical-align: bottom;
+  width: 100%;
+  object-fit: cover;
+}
+.tweet video {
+  max-height: 100%;
+  vertical-align: bottom;
+  width: 100%;
+}
+.tweet ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  gap: 8px;
+  padding-left: 0px;
+  margin-bottom: 0px;
+}
+.tweet li {
+  height: 20vh;
+  width: 20vh;
+  flex-grow: 1;
+}
+.tweet .display_name {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.tweet .user_name {
+  margin-top: 4px;
+}
+.tweet .favorite_count {
+  display: inline-block;
+  margin-bottom: 0;
+}
+.tweet .retweet_count {
+  display: inline-block;
+  margin-left: 16px;
+  margin-bottom: 0;
+}
+.tweet .created_at {
+  margin-bottom: 0;
+}
+.tweet .permalink {
+  margin-left: 16px;
+}
+.child {
+  margin-top: 16px;
+  margin-left: 64px;
+  max-width: calc(600px - 64px);
+}
+.parent {
+  margin-bottom: 16px;
+  margin-right: 64px;
+  max-width: calc(600px - 64px);
+}
+@media screen and (max-width: 599px) {
+  .tweet li {
+    height: 15vh;
+    width: 15vh;
+    flex-grow: 1;
+  }
+}
+
+/* automatic/manual light mode */
+:root, :root.light {
+  @media(prefers-color-scheme: light) {
+    body {
+      background-color: white;
+      color: black;
+    }
+    a {
+      color: #33ff00;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #33ff00;
+      text-decoration: underline;
+    }
+    .tweet {
+      background-color: #e8e8e8;
+      border: 2px solid black;
+      border-radius: 16px;
+    }
+    .child {
+      background-color: white;
+    }
+    .parent {
+      background-color: white;
+
+    }
+    button {
+      background-color: white;
+      color: black;
+    }
+    input {
+      background-color: white;
+      color: black;
+    }
+    /* .tweet .favorite_count {
+      color: #33ff00;
+    }
+    .tweet .retweet_count {
+      color: #33ff00;
+    }
+    .tweet .created_at {
+      color: #33ff00;
+    } */
+  }
+}
+
+/* automatic dark mode */
+/* ❗️ keep the rules in sync with the manual dark mode below! */
+@media (prefers-color-scheme: dark) {
+  :root {
+    @media(prefers-color-scheme: dark) {
+      body {
+        background-color: black;
+        color: white;
+      }
+      a {
+        color: #33ff00;
+        text-decoration: none;
+      }
+      a:hover {
+        color: #33ff00;
+        text-decoration: underline;
+      }
+      .tweet {
+        background-color: black;
+        border: 1px solid gray; /*#33ff00;*/
+        border-radius: 5px;
+      }
+      .child {
+        background-color: black;
+      }
+      .parent {
+        background-color: black;
+      }
+      button {
+        background-color: black
+        color: white;
+      }
+      input {
+        background-color: black;
+        color: white;
+      }
+      .tweet .favorite_count {
+        color: #33ff00 !important;
+      }
+      .tweet .retweet_count {
+        color: #33ff00 !important;
+      }
+      .tweet .created_at {
+        color: #33ff00 !important;
+      }
+    }
+  }
+}
+
+/* manual dark mode
+/* ❗️ keep the rules in sync with the automatic dark mode above! */
+:root.dark {
+  --some-value: white;
+  --some-other-value: black;
+}
+
+/* use the variables */
+body {
+  color: var(--some-value);
+  background-color: var(--some-other-value);
+}
